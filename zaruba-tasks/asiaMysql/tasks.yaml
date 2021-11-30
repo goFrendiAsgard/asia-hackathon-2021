@@ -1,0 +1,17 @@
+tasks:
+
+  startAsiaMysql:
+    icon: 🐬
+    dependencies:
+      - startAsiaMysqlContainer
+
+  queryAsiaMysql:
+    icon: 📜
+    extend: zrbRunInDockerContainer
+    location: ../../asiaMysql
+    configRef: asiaMysqlContainer
+    envRef: asiaMysql
+    inputs:
+      - sql
+    configs:
+      templateLocation: '{{ .GetProjectPath "asiaMysql/queryTemplate" }}'

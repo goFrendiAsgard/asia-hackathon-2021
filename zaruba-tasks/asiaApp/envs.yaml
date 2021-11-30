@@ -1,0 +1,79 @@
+envs:
+
+  asiaApp:
+    APP_ENABLE_EVENT_HANDLER:
+      default: "1"
+      from: ASIA_APP_APP_ENABLE_EVENT_HANDLER
+    APP_ENABLE_ROUTE_HANDLER:
+      default: "1"
+      from: ASIA_APP_APP_ENABLE_ROUTE_HANDLER
+    APP_ENABLE_RPC_HANDLER:
+      default: "1"
+      from: ASIA_APP_APP_ENABLE_RPC_HANDLER
+    APP_HTTP_PORT:
+      default: "3000"
+      from: ASIA_APP_APP_HTTP_PORT
+    APP_KAFKA_BOOTSTRAP_SERVERS:
+      default: localhost:9093
+      from: ASIA_APP_APP_KAFKA_BOOTSTRAP_SERVERS
+    APP_KAFKA_SASL_MECHANISM:
+      default: PLAIN
+      from: ASIA_APP_APP_KAFKA_SASL_MECHANISM
+    APP_KAFKA_SASL_PLAIN_PASSWORD:
+      default: ""
+      from: ASIA_APP_APP_KAFKA_SASL_PLAIN_PASSWORD
+    APP_KAFKA_SASL_PLAIN_USERNAME:
+      default: ""
+      from: ASIA_APP_APP_KAFKA_SASL_PLAIN_USERNAME
+    APP_MESSAGE_BUS_TYPE:
+      default: local
+      from: ASIA_APP_APP_MESSAGE_BUS_TYPE
+    APP_RABBITMQ_HOST:
+      default: localhost
+      from: ASIA_APP_APP_RABBITMQ_HOST
+    APP_RABBITMQ_PASS:
+      default: toor
+      from: ASIA_APP_APP_RABBITMQ_PASS
+    APP_RABBITMQ_USER:
+      default: root
+      from: ASIA_APP_APP_RABBITMQ_USER
+    APP_RABBITMQ_VHOST:
+      default: /
+      from: ASIA_APP_APP_RABBITMQ_VHOST
+    APP_RPC_TYPE:
+      default: local
+      from: ASIA_APP_APP_RPC_TYPE
+    APP_SQLALCHEMY_DATABASE_URL:
+      default: sqlite:///database.db
+      from: ASIA_APP_APP_SQLALCHEMY_DATABASE_URL
+    APP_SSL_CERT_FILE:
+      default: ""
+      from: ASIA_APP_APP_SSL_CERT_FILE
+    APP_SSL_KEY_FILE:
+      default: ""
+      from: ASIA_APP_APP_SSL_KEY_FILE
+    APP_STATIC_DIRECTORY:
+      default: ""
+      from: ASIA_APP_APP_STATIC_DIRECTORY
+    APP_STATIC_URL:
+      default: /static
+      from: ASIA_APP_APP_STATIC_URL
+    TEST_RABBITMQ_HOST:
+      default: localhost
+      from: ASIA_APP_TEST_RABBITMQ_HOST
+    TEST_RABBITMQ_PASS:
+      default: toor
+      from: ASIA_APP_TEST_RABBITMQ_PASS
+    TEST_RABBITMQ_USER:
+      default: root
+      from: ASIA_APP_TEST_RABBITMQ_USER
+    TEST_RABBITMQ_VHOST:
+      default: /
+      from: ASIA_APP_TEST_RABBITMQ_VHOST
+    APP_BOOK_STORAGE_ENGINE:
+      from: ASIA_APP_APP_BOOK_STORAGE_ENGINE
+      default: db
+    APP_REDIS_URL:
+      from: ASIA_APP_APP_REDIS_URL
+      default: redis://root:toor@localhost:6379/0
+

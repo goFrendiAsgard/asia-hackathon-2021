@@ -1,0 +1,57 @@
+tasks:
+
+  startAsiaRedisContainer:
+    icon: 🧰
+    extend: zrbStartDockerContainer
+    location: ../../asiaRedis
+    inputs:
+      - runAsiaRedisInLocal
+    dependencies:
+      - buildAsiaRedisImage
+    configRefs:
+      - asiaRedisContainer
+      - asiaRedis
+    envRefs: 
+      - asiaRedis
+
+  buildAsiaRedisImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../asiaRedis
+    timeout: 1h
+    configRefs:
+      - asiaRedisContainer
+      - asiaRedis
+    envRefs: 
+      - asiaRedis
+
+  pushAsiaRedisImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildAsiaRedisImage
+    configRefs:
+      - asiaRedisContainer
+      - asiaRedis
+    envRefs: 
+      - asiaRedis
+
+  stopAsiaRedisContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - asiaRedisContainer
+      - asiaRedis
+    envRefs: 
+      - asiaRedis
+
+  removeAsiaRedisContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../asiaRedis
+    configRefs:
+      - asiaRedisContainer
+      - asiaRedis
+    envRefs: 
+      - asiaRedis

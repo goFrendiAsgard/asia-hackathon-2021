@@ -1,0 +1,9 @@
+envs:
+
+  asiaRedis:
+    ALLOW_EMPTY_PASSWORD:
+      default: "yes"
+      from: ASIA_REDIS_ALLOW_EMPTY_PASSWORD
+    REDIS_PASSWORD:
+      default: toor
+      from: ASIA_REDIS_REDIS_PASSWORD

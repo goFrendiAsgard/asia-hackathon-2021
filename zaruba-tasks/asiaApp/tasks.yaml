@@ -1,0 +1,47 @@
+tasks:
+
+  startAsiaApp:
+    icon: ⚡
+    extend: zrbStartApp
+    location: ../../asiaApp
+    inputs:
+      - runAsiaAppInLocal
+    dependencies:
+      - prepareAsiaApp
+      - startAsiaMysql
+      - startAsiaRedis
+    configRefs:
+      - startAsiaApp
+      - asiaApp
+    envRef: asiaApp
+
+  prepareAsiaApp:
+    icon: 🔧
+    extend: zrbRunShellScript
+    location: ../../asiaApp
+    configRefs:
+      - prepareAsiaApp
+      - asiaApp
+    envRef: asiaApp
+
+  testAsiaApp:
+    icon: ✅
+    extend: zrbRunShellScript
+    location: ../../asiaApp
+    dependencies:
+      - prepareAsiaApp
+    configRefs:
+      - testAsiaApp
+      - asiaApp
+    envRef: asiaApp
+
+  migrateAsiaApp:
+    icon: 🦆
+    extend: zrbRunShellScript
+    location: ../../asiaApp
+    dependencies:
+      - prepareAsiaApp
+    configRefs:
+      - migrateAsiaApp
+      - asiaApp
+    envRef: asiaApp

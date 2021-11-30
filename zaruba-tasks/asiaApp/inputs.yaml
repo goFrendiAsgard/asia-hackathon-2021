@@ -1,0 +1,10 @@
+inputs:
+
+  runAsiaAppInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run asiaApp locally
+    prompt: Run asiaApp locally?

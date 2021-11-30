@@ -1,0 +1,57 @@
+tasks:
+
+  startAsiaMysqlContainer:
+    icon: 🐬
+    extend: zrbStartDockerContainer
+    location: ../../asiaMysql
+    inputs:
+      - runAsiaMysqlInLocal
+    dependencies:
+      - buildAsiaMysqlImage
+    configRefs:
+      - asiaMysqlContainer
+      - asiaMysql
+    envRefs: 
+      - asiaMysql
+
+  buildAsiaMysqlImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../asiaMysql
+    timeout: 1h
+    configRefs:
+      - asiaMysqlContainer
+      - asiaMysql
+    envRefs: 
+      - asiaMysql
+
+  pushAsiaMysqlImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildAsiaMysqlImage
+    configRefs:
+      - asiaMysqlContainer
+      - asiaMysql
+    envRefs: 
+      - asiaMysql
+
+  stopAsiaMysqlContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - asiaMysqlContainer
+      - asiaMysql
+    envRefs: 
+      - asiaMysql
+
+  removeAsiaMysqlContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../asiaMysql
+    configRefs:
+      - asiaMysqlContainer
+      - asiaMysql
+    envRefs: 
+      - asiaMysql

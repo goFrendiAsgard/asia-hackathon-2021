@@ -1,0 +1,16 @@
+configs:
+
+  asiaMysql:
+    runInLocal: '{{ .GetValue "runAsiaMysqlInLocal" }}'
+    ports: |
+      3306
+
+  asiaMysqlContainer:
+    useImagePrefix: true
+    imageName: asia-mysql
+    containerName: asiaMysql
+    localhost: host.docker.internal
+    checkCommand: |
+      mysql -u "root" -p{{ .GetEnv "MYSQL_ROOT_PASSWORD" }} -e "SHOW SCHEMAS"
+    volumes: |
+      init.sql:/docker-entrypoint-initdb.d/init.sql

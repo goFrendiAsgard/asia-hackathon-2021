@@ -1,0 +1,10 @@
+inputs:
+
+  runAsiaMysqlInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run asiaMysql locally
+    prompt: Run asiaMysql locally?

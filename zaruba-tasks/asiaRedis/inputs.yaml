@@ -1,0 +1,10 @@
+inputs:
+
+  runAsiaRedisInLocal:
+    default: yes
+    options:
+      - yes
+      - no
+    allowCustom: false
+    description: Whether to run asiaRedis locally
+    prompt: Run asiaRedis locally?

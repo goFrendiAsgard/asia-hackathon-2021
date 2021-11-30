@@ -1,0 +1,34 @@
+configs:
+
+  asiaApp:
+    runInLocal: '{{ .GetValue "runAsiaAppInLocal" }}'
+    ports: |
+      {{ .GetEnv "APP_HTTP_PORT" }}
+
+  asiaAppContainer:
+    useImagePrefix: true
+    imageName: asia-app
+    containerName: asiaApp
+    localhost: host.docker.internal
+    checkCommand: |
+      echo "check asiaApp"
+    volumes: |
+
+
+  startAsiaApp:
+    start: |
+      . "{{ .GetProjectPath "zaruba-tasks/asiaApp/bash/start.sh" }}"
+    check: |
+      echo "check asiaApp"
+
+  prepareAsiaApp:
+    start: |
+      . "{{ .GetProjectPath "zaruba-tasks/asiaApp/bash/prepare.sh" }}"
+
+  testAsiaApp:
+    start: |
+      . "{{ .GetProjectPath "zaruba-tasks/asiaApp/bash/test.sh" }}"
+
+  migrateAsiaApp:
+    start: |
+      echo "migrate asiaApp"

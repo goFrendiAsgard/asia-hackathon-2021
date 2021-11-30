@@ -1,0 +1,15 @@
+envs:
+
+  asiaMysql:
+    MYSQL_DATABASE:
+      default: sample
+      from: ASIA_MYSQL_MYSQL_DATABASE
+    MYSQL_PASSWORD:
+      default: mysql
+      from: ASIA_MYSQL_MYSQL_PASSWORD
+    MYSQL_ROOT_PASSWORD:
+      default: toor
+      from: ASIA_MYSQL_MYSQL_ROOT_PASSWORD
+    MYSQL_USER:
+      default: mysql
+      from: ASIA_MYSQL_MYSQL_USER

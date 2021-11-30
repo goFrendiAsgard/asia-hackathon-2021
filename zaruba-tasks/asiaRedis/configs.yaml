@@ -1,0 +1,15 @@
+configs:
+
+  asiaRedis:
+    runInLocal: '{{ .GetValue "runAsiaRedisInLocal" }}'
+    ports: |
+      6379
+
+  asiaRedisContainer:
+    useImagePrefix: true
+    imageName: asia-redis
+    containerName: asiaRedis
+    localhost: host.docker.internal
+    checkCommand: |
+      echo "check asiaRedis"
+    volumes: |

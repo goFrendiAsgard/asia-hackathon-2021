@@ -1,0 +1,59 @@
+tasks:
+
+  startAsiaAppContainer:
+    icon: ⚡
+    extend: zrbStartDockerContainer
+    location: ../../asiaApp
+    inputs:
+      - runAsiaAppInLocal
+    dependencies:
+      - buildAsiaAppImage
+      - startAsiaMysqlContainer
+      - startAsiaRedisContainer
+    configRefs:
+      - asiaAppContainer
+      - asiaApp
+    envRefs: 
+      - asiaApp
+
+  buildAsiaAppImage:
+    icon: 🏭
+    extend: zrbBuildDockerImage
+    location: ../../asiaApp
+    timeout: 1h
+    configRefs:
+      - asiaAppContainer
+      - asiaApp
+    envRefs: 
+      - asiaApp
+
+  pushAsiaAppImage:
+    icon: 📤
+    extend: zrbPushDockerImage
+    timeout: 1h
+    dependencies:
+      - buildAsiaAppImage
+    configRefs:
+      - asiaAppContainer
+      - asiaApp
+    envRefs: 
+      - asiaApp
+
+  stopAsiaAppContainer:
+    icon: ✋
+    extend: zrbStopDockerContainer
+    configRefs:
+      - asiaAppContainer
+      - asiaApp
+    envRefs: 
+      - asiaApp
+
+  removeAsiaAppContainer:
+    icon: ❌
+    extend: zrbRemoveDockerContainer
+    location: ../../asiaApp
+    configRefs:
+      - asiaAppContainer
+      - asiaApp
+    envRefs: 
+      - asiaApp

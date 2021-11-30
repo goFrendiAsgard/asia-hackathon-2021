@@ -1,0 +1,103 @@
+includes:
+  - ./zaruba-tasks/asiaRedis/index.yaml
+  - ./zaruba-tasks/asiaMysql/index.yaml
+  - ./zaruba-tasks/asiaApp/index.yaml
+
+tasks:
+
+  prepare:
+    icon: 🔧
+    extend: zrbWrapper
+    dependencies:
+      - prepareAsiaApp
+
+  migrate:
+    icon: 🦆
+    extend: zrbWrapper
+    dependencies:
+      - migrateAsiaApp
+
+  test:
+    icon: ✅
+    extend: zrbWrapper
+    dependencies:
+      - testAsiaApp
+
+  start:
+    icon: 🏁
+    extend: zrbWrapper
+    dependencies:
+      - startAsiaRedis
+      - startAsiaMysql
+      - startAsiaApp
+
+  run:
+    icon: 🏁
+    extend: zrbWrapper
+    dependencies: []
+
+  startContainers:
+    icon: 🐳
+    extend: zrbWrapper
+    dependencies:
+      - startAsiaRedisContainer
+      - startAsiaMysqlContainer
+      - startAsiaAppContainer
+
+  runContainers:
+    icon: 🐳
+    extend: zrbWrapper
+    dependencies: []
+
+  stopContainers:
+    icon: ✋
+    extend: zrbWrapper
+    dependencies:
+      - stopAsiaRedisContainer
+      - stopAsiaMysqlContainer
+      - stopAsiaAppContainer
+
+  removeContainers:
+    icon: ❌
+    extend: zrbWrapper
+    dependencies:
+      - removeAsiaRedisContainer
+      - removeAsiaMysqlContainer
+      - removeAsiaAppContainer
+
+  pullImages:
+    icon: 📥
+    extend: zrbWrapper
+    dependencies: []
+
+  pushImages:
+    icon: 📤
+    extend: zrbWrapper
+    dependencies:
+      - pushAsiaRedisImage
+      - pushAsiaMysqlImage
+      - pushAsiaAppImage
+
+  buildImages:
+    icon: 🏭
+    extend: zrbWrapper
+    dependencies:
+      - buildAsiaRedisImage
+      - buildAsiaMysqlImage
+      - buildAsiaAppImage
+
+  prepareDeployments:
+    icon: 🔧
+    extend: zrbWrapper
+    dependencies: []
+
+  deploy:
+    icon: 🏭
+    extend: zrbWrapper
+    dependencies: []
+
+  destroy:
+    icon: ❌
+    extend: zrbWrapper
+    dependencies: []
+
